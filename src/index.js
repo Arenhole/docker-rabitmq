@@ -17,7 +17,7 @@ function connect() {
   });
 }
 
-// LISTER RABIMQ
+// LISTENER RABIMQ
 (async () => {
   console.log("Waiting for connection...");
 
