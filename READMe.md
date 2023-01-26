@@ -37,11 +37,11 @@ _Lancer avec curl ou wget ou postman une requete post_
 
 # Les different fichiers
 
-_rabitmq.js_ : `Traite les differentes demandes rabbitmq, gere la connexion, le consumer et le fait de send le message`
-_worker.js_ : `Fonction envoyé ensuite a la lib rabitmq pour traiter le message et faire les traitements`
-_db.js_ : `Gère la connexion a la bd`
-_api.js_ : `Gère la création de l'api et des routes`
-_index.js_ : `Lie tout les fichiers entre eux grace a l'injection de dépendances`
+- _rabitmq.js_ : `Traite les differentes demandes rabbitmq, gere la connexion, le consumer et le fait de send le message`
+- _worker.js_ : `Fonction envoyé ensuite a la lib rabitmq pour traiter le message et faire les traitements`
+- _db.js_ : `Gère la connexion a la bd`
+- _api.js_ : `Gère la création de l'api et des routes`
+- _index.js_ : `Lie tout les fichiers entre eux grace a l'injection de dépendances`
 
 # L'API ne renvoie que des codes d'erreurs 400 Bad Request car toute les routes sont en get et pour la route create on ne passe aucun body car inutile (id: auto-increment, uuid: généré, flag: statique)
 
