@@ -10,6 +10,8 @@ _Se rendre sur docker et creer une queue nommée 'command'_
 
 ### Installer les dependances
 
+### Le npm i installe
+
 `npm i`
 
 ### Lancer le projet
@@ -27,6 +29,8 @@ _Se rendre sur docker et creer une queue nommée 'command'_
 **Les routes ne sont pas normées REST mais ont été nommée de cette façon par soucis de simplicité**
 
 **Il est possible de la visualiser sur :**
+
+// TODO RAJOUTER MESSAGES
 
 `http://localhost:3000/commande/id/:id`
 `http://localhost:3000/commande/numero/:numero`
