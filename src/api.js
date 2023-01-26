@@ -1,8 +1,7 @@
 import express from "express";
 import { v4 as uuidv4 } from "uuid";
-let port = 3000;
 
-export function loadApi(connexion, db, queue) {
+export function loadApi(rabitmq, db, port) {
   // DECCLARATION DE L'API ET ROUTES
   const app = express();
 
@@ -55,7 +54,7 @@ export function loadApi(connexion, db, queue) {
     });
   });
 
-  app.get("/commande/create", (req, res) => {
+  app.post("/commande/create", (req, res) => {
     let errors = [];
     if (errors.length) {
       res.status(400).json({ error: errors.join(",") });
@@ -78,11 +77,7 @@ export function loadApi(connexion, db, queue) {
       }
 
       // CREATION MESSAGE POUR TRAITER LA COMMANDE
-      const ch2 = await connexion.createChannel();
-      ch2.sendToQueue(
-        queue,
-        Buffer.from(`{ "numero": "${numeroCom}", "message": "Creer le plat"}`)
-      );
+      rabitmq.send(`{ "numero": "${numeroCom}", "message": "Creer le plat"}`);
 
       res.json({
         message: "success",
